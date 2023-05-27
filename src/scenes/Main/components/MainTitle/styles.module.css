@@ -1,0 +1,22 @@
+.mainTitleWrapper {
+    margin: 0 auto;
+    max-width: 614px;
+    text-align: center;
+    margin-bottom: 50px;
+    
+}
+
+.mainTitle {
+    font-weight: 700;
+    font-size: 60px;
+    line-height: 82px;
+    color: #E59C9C;
+    margin-bottom: 5px;
+}
+
+.mainSubtitle {
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 41px;
+    color: #FFFFFF;
+}

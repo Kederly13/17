@@ -1,0 +1,9 @@
+.section {
+    background-image: url('background.png');
+    background-size: contain;
+}
+
+.container {
+    max-width: 1230px;
+    margin: 0 auto;
+}

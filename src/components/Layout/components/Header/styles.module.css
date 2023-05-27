@@ -1,0 +1,33 @@
+.header {
+    padding-top: 55px;
+    font-size: 20px;
+}
+
+.headerWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    background: url('Logo.svg') no-repeat;
+    display: block;
+    width: 185px;
+    height: 41px;
+}
+
+nav a {
+    margin-left: 35px;
+    font-size: 18px;
+    font-weight: 400;
+    color: #FFFFFF;
+}
+
+.header .nav a.LinkActive {
+    color: #E59C9C;
+}
+
+nav a:first-child {
+    margin-left: 0;
+    
+}

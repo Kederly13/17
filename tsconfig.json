@@ -1,6 +1,10 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "baseUrl": "src",
+    "paths": {
+      "scenes/*": ["./scenes/*"]
+    },
+    "target": "es6",
     "lib": [
       "dom",
       "dom.iterable",
@@ -20,6 +24,7 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
+  "exclude": ["node_modules"],
   "include": [
     "src"
   ]
