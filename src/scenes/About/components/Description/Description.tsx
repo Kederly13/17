@@ -2,7 +2,7 @@ import './styles.css';
 
 const Description = () => (
     <section className='description'>
-        <div className='container'>
+
             <div className='description-wrapper'>
                 <img src='' alt=''></img>
                 <div className='info-block'>
@@ -13,7 +13,6 @@ const Description = () => (
                     </p>
                 </div>
             </div>
-        </div>
     </section>
 )
 

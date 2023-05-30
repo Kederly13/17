@@ -1,6 +1,8 @@
 .header {
     padding-top: 55px;
     font-size: 20px;
+    position: fixed;
+    width: 100%;
 }
 
 .headerWrapper {
@@ -9,12 +11,12 @@
     justify-content: space-between;
 }
 
-.logo {
+/* .logo {
     background: url('Logo.svg') no-repeat;
     display: block;
     width: 185px;
     height: 41px;
-}
+} */
 
 nav a {
     margin-left: 35px;
@@ -28,6 +30,5 @@ nav a {
 }
 
 nav a:first-child {
-    margin-left: 0;
-    
+    margin-left: 0;    
 }

@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
-import { Section } from 'components/Section';
+
 
 interface ILayoutParams  {
     children: ReactNode; 
@@ -10,14 +10,11 @@ interface ILayoutParams  {
 
 const Layout: React.FC<ILayoutParams> = ({ children }) => (
     <>
-        <Section>
-            <Header />
-                <main>
-                    {children}
-                </main>
-        </Section>
+         <Header />
+            <main>
+                {children}
+            </main>
         <Footer />
-        
     </>
 )
 

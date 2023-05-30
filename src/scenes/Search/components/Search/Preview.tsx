@@ -3,8 +3,8 @@ import { PageTitle } from '../../../../components/PageTitle/PageTitle';
 
 
 const Preview = () => (
+    
     <section className='preview'>
-        <div className='container'>
             <PageTitle>
                 <br>MOVIESinfo</br>
                 <p>Самый популярный портал о фильмах</p>
@@ -12,7 +12,6 @@ const Preview = () => (
             <div className='preview-wrapper'>
                 
             </div>
-        </div>
     </section>
 )
 

@@ -10,14 +10,12 @@ import { Layout } from '../Layout';
 const App = () => (
     <BrowserRouter>
       <Layout>
-        <div className='main'>
           <Routes>
             <Route path={MainPage()} element={<Main/>} />
             <Route path={CategoriesPage()} element={<Categories />} />
             <Route path={SearchPage()} element={<Search />} />
             <Route path={AboutPage()} element={<About />} />
           </Routes>
-        </div>
       </Layout>
     </BrowserRouter>
 )

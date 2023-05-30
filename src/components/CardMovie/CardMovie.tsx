@@ -1,0 +1,5 @@
+import { I}
+
+const CardMovie = () => {
+
+}

@@ -1,14 +1,11 @@
-.logo {
+/* .logo {
     background: url('Logo.svg') no-repeat;
     display: block;
     width: 185px;
     height: 41px;
-}
+} */
 
-.container {
-    max-width: 1230px ;
-    margin: 0 auto;
-}
+
 
 .footer {
     background-color: #3A3A3A;

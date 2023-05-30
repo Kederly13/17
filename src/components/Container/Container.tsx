@@ -7,9 +7,9 @@ interface IContainerParams {
 
 const Container: React.FC<IContainerParams> = ({ children }) => {
     return (
-            <div className={classes.container}>
-                {children}
-            </div>
+        <div className={classes.container}>
+            {children}
+        </div>
     )
 }
 

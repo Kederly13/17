@@ -1,19 +1,21 @@
-import classes from './styles.module.css';
 import { ReactNode } from 'react';
 
+import classes from './styles.module.css';
+
+
 interface ISectionParams {
-    children: ReactNode; 
+    children: ReactNode;
+    className: ReactNode;
+    containerFluid?: boolean; 
 }
 
-const Section: React.FC<ISectionParams> = ({ children }) => {
-    
-    return (
-        <section className={classes.section}>
-            <div className={classes.container}>
-                {children}
-            </div>
-        </section>
-    )
-}
+const Section: React.FC<ISectionParams> = ({ children, className, containerFluid }) => (
+    <section className={`${classes.section}, ${className}`}>
+        <div className={!containerFluid ? 'container' : 'container-fluid'}>
+            {children}
+        </div>
+    </section>
+)
+
 
 export { Section };

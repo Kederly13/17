@@ -1,0 +1,7 @@
+export interface IMoviesDetail {
+    id: number,
+    image: string;
+    name: string
+    genres: string[] | string;
+    year: number;
+}

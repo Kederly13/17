@@ -1,0 +1,6 @@
+.imageBlock {
+    overflow: hidden;
+    border-radius: 20px;
+    width: 180px;
+    height: 260px;
+}
