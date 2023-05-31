@@ -1,8 +1,16 @@
-// import './styles.module.css';
+import { IMoviesDetail } from 'types/IMoviesDetail';
 
-// const MoviesList: React.FC<IMoviewsListParams> = ({ data } => (
-//     <div className={classes.moviesList}>
+import classes from './styles.module.css';
 
-//     </div>
+interface IMoviewsListParams {
+    data: IMoviesDetail;
+}
+
+const MoviesList: React.FC<IMoviewsListParams> = ({ data }) => (
+    <div className={classes.moviesList}>
+        <></>
+    </div>
     
-// ))
+)
+
+export { MoviesList };

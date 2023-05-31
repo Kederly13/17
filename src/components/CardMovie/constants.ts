@@ -1,4 +1,4 @@
-const VARIANTS = {
+export const VARIANTS = {
     PRIMARY: 'primary',
     SECONDARY: 'secondary'
 };

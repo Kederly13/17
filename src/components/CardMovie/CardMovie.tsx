@@ -1,5 +1,3 @@
-import { I}
+const CardMovie = () => (<></>)
 
-const CardMovie = () => {
-
-}
+export {CardMovie};

@@ -1,7 +1,7 @@
 export interface IMoviesDetail {
     id: number,
-    image: string;
+    image: { medium: string; original: string };
     name: string
     genres: string[] | string;
-    year: number;
+    premiered: string;
 }
