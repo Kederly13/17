@@ -8,7 +8,7 @@ const initialState = {
 
 const moviesReducer = (state: Istore = initialState, action: AnyAction) => {
     switch(action.type) {
-        case 'movies/setMoviews':
+        case 'movies/setMovies':
             return {...state, movies: action.payload}
         case 'movies/setErrorMovies':
             return {...state, movies: action.payload}

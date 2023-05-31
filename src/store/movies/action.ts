@@ -6,7 +6,7 @@ import { MoviesAPI } from 'api/MoviesAPI';
 import { getErrorMessage } from 'utils/getErrorMessage';
 
 
-export const setMoviewsAction = (list: Istore['movies'] ) => {
+export const setMoviesAction = (list: Istore['movies'] ) => {
     return {
         type: 'movies/setMovies',
         payload: list,
@@ -15,7 +15,7 @@ export const setMoviewsAction = (list: Istore['movies'] ) => {
 
 export const setErrorMoviesAction = (error: Istore['error'] ) => {
     return {
-        type: 'moviews/setMovies',
+        type: 'movies/setMovies',
         payload: error,
     }
 };
@@ -30,7 +30,7 @@ export const loadMovies = () => async (dispatch: Dispatch) => {
 
             return { id, image: imageUrl, name, genres, year };
         })
-        dispatch(setErrorMoviesAction(extractedShows));
+        dispatch(setMoviesAction(extractedShows));
     } catch (error) {
         dispatch(setErrorMoviesAction(getErrorMessage(error)))
     }
