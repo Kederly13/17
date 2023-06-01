@@ -2,9 +2,15 @@ import movie from './movie.jpg';
 
 import classses from './styles.module.css';
 
-const MovieImage = ({ alt, className}) => (
+interface MovieImage {
+    alt: string,
+    className: string,
+    src: string,
+}
+
+const MovieImage: React.FC<MovieImage> = ({ alt, className, src}) => (
     <div className={classses.imageBlock}>
-        <img src={movie} alt="movie" />
+        <img src={movie} alt={alt} />
     </div>
 )
 

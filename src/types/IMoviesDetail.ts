@@ -4,4 +4,8 @@ export interface IMoviesDetail {
     name: string
     genres: string[] | string;
     premiered: string;
+    network: { country: {
+        name: string;
+        }  
+    };
 }
