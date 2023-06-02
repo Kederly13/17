@@ -10,7 +10,7 @@ interface ICardMovie extends IMoviesDetail {
     variant: string;
 }
 
-const CardMovie: React.FC<ICardMovie> = ({ id, name, image, premiered, genres, variant}) => {
+const CardMovie: React.FC<ICardMovie> = ({ name, image, year, genres, variant, country }) => {
     return (
         <div className={classNames(classes.card, {
             [classes[variant]]:variant 
@@ -18,13 +18,16 @@ const CardMovie: React.FC<ICardMovie> = ({ id, name, image, premiered, genres, v
             <MovieImage
                 alt={name}
                 className=''
-                src={image.original}
+                image={image}
             />
-            <h3>{name}</h3>
-
+            <div className={classes.cardInfo}>
+                <h3 className={classes.movieName}>{name}</h3> 
+                <p className={classes.year}>{year}</p>
+                <p className={classes.country}>{country}</p>
+                <p className={classes.genre}>{genres}</p>
+            </div>
         </div>
     );
-
 }
 
-export {CardMovie};
+export {CardMovie, VARIANTS};

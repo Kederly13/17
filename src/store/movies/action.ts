@@ -26,11 +26,11 @@ export const loadMovies = () => async (dispatch: Dispatch) => {
         
         const extractedShows = response.data.map((item: ApiResponse) => {
             const { id, image, name, genres, premiered, network } = item.show;
-            const year = new Date(premiered).getFullYear();
-            const imageUrl = image.medium;
-            const country = network?.country?.name;
+            const year = premiered ? new Date(premiered).getFullYear() : undefined;
+            const imageUrl = image;
+            const country = network?.country.name;
 
-            return { id, image: imageUrl, name, genres, year, country };
+            return { id, image: imageUrl, name, genres, year, country, premiered };
         })
         dispatch(setMoviesAction(extractedShows));
     } catch (error) {

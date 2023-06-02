@@ -12,7 +12,7 @@ interface ISectionParams {
 const Section: React.FC<ISectionParams> = ({ children, className, containerFluid }) => (
     // сделать проверку на className
     <section className={`${classes.section}, ${className}`}> 
-        <div className={!containerFluid ? 'container' : 'container-fluid'}>
+        <div className={classes.container}>
             {children}
         </div>
     </section>
