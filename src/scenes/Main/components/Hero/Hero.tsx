@@ -4,7 +4,6 @@ import { PreviewMovies } from './components/PreviewMovies';
 import classes from './styles.module.css';
 
 const Hero = () => (
-
     <Section className={classes.section}>
         <div className={classes.mainTitleWrapper}>
             <h1 className={classes.mainTitle}>MOVIESinfo</h1>
@@ -12,7 +11,6 @@ const Hero = () => (
         </div>
         <PreviewMovies/>
     </Section>
-
 )
 
 export { Hero };

@@ -7,5 +7,17 @@ export interface Istore {
 
 export interface ApiResponse {
     score: number;
-    show: IMoviesDetail;
+    show: {
+        id?: number,
+        image: { medium: string; original: string };
+        name: string
+        genres: string[] | string;
+        premiered?: string;
+        network?: { country: {
+            name: string;
+            }  
+        };
+        country: string;
+        year?: number;
+    };
 }

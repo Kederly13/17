@@ -20,17 +20,14 @@ export const setErrorMoviesAction = (error: Istore['error'] ) => {
     }
 };
 
-export const loadMovies = () => async (dispatch: Dispatch) => {
+export const loadMovies = (category: string) => async (dispatch: Dispatch) => {
     try {
-        const response = await MoviesAPI.getGirls();
-        
+        const response = await MoviesAPI.getCategory(category);
         const extractedShows = response.data.map((item: ApiResponse) => {
             const { id, image, name, genres, premiered, network } = item.show;
-            const year = premiered ? new Date(premiered).getFullYear() : undefined;
-            const imageUrl = image;
             const country = network?.country.name;
 
-            return { id, image: imageUrl, name, genres, year, country, premiered };
+            return { id, image, name, genres, country, premiered };
         })
         dispatch(setMoviesAction(extractedShows));
     } catch (error) {

@@ -1,12 +1,7 @@
 import { Category } from "./components/Category";
 
-const Categories = () => {
-
-
-    return(
-
-        <Category/>
-    )
-}
+const Categories = () => (
+    <Category/>
+)
 
 export { Categories };

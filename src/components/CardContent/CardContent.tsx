@@ -1,13 +1,14 @@
 import { ReactNode } from 'react';
 
-import classes from './styles.module.css'
+import styles from './styles.module.scss'
 
 interface ICardContentParams {
+    className?: string,
     children: ReactNode; 
 }
 
-const CardContent: React.FC<ICardContentParams> = ({ children }) => (
-    <div className={classes.cardContent}>
+const CardContent: React.FC<ICardContentParams> = ({ className, children }) => (
+    <div className={`${styles.cardContent} ${className}`}>
         {children}
     </div>
 )

@@ -1,0 +1,19 @@
+.card {
+    &.primary {
+        font-size: 13px;
+        &.cardInfo {
+            padding-bottom: 15px;
+        }
+        &.movieName {
+            font-size: 15px;
+            margin-bottom: 25px;
+        } 
+        &.cardDetails {
+            display: flex;
+            font-size: 30px;
+        }
+        &.genre {
+            margin-top: 30px;
+        }
+    }
+}

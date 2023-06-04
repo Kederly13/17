@@ -1,13 +1,16 @@
 import {useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from 'components/hooks';
-import { MoviesAPI } from 'api/MoviesAPI';
 import axios from 'axios';
+import { MoviesAPI } from 'api/MoviesAPI';
 
 import { loadMovies } from 'store/movies/action';
 import { selectMovies } from 'store/movies/selectors';
-import { CardContent } from 'components/CardContent';
 
-import { CardMovie } from 'components/CardMovie';
+import { CardContent } from 'components/CardContent';
+import { CardMovie, VARIANTS } from 'components/CardMovie';
+import { getYear } from 'utils/getYear';
+
+import { CONSTANTS } from 'constants/constants';
 
 import classes from './styles.module.css';
 
@@ -18,12 +21,12 @@ const PreviewMovies = () => {
     const moviesList = useAppSelector(selectMovies);
 
     useEffect(() => {
-        dispatch(loadMovies());
+        dispatch(loadMovies(CONSTANTS.GIRLS));
     }, [dispatch])
 
+    console.log(moviesList)
    
 
-// This Api is for testing p
 // const url = 'https://api.tvmaze.com/search/shows?q=';
 // const MoviesAPI = {
 //     async getGirls() {
@@ -37,30 +40,33 @@ const PreviewMovies = () => {
 //         }
 //     }
 // };
+
 //     const result = MoviesAPI.getGirls();
 //     console.log(result);
 
     console.log(moviesList);
-    
-    return (
+    // if (moviesList && moviesList.length > 0) {
+    //     console.log(moviesList[0].premiered);
+    //   }
 
+ 
+    return (
         <CardContent>
             <div className={classes.previewWrapper}>
-                {moviesList.map((item) => (
+                {moviesList.map(({ id, image: { medium }, name, premiered, country, genres }) => (
                     <CardMovie
-                        key={item.id}
-                        image={item.image}
-                        name={item.name}
-                        year={item.year}
-                        country={item.country}
-                        genres={item.genres}
-                        variant="primary"
+                        key={id}
+                        image={medium}
+                        name={name}
+                        year={getYear(premiered)}
+                        country={country}
+                        genres={genres}
+                        variant={VARIANTS.PRIMARY}
                     />
                 ))}
-            </div>
-        </CardContent>
-        
+            </div> 
+        </CardContent> 
     )
-}
+};
 
 export { PreviewMovies };

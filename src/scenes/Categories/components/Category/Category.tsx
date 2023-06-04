@@ -1,11 +1,13 @@
-import './styles.css';
+import { Section } from "components/Section";
+import { CategoryItem } from "./CategoryItem";
 
+import classes from './styles.module.css';
 
 const Category = () => (
-    <section className='category'>
-            <div className='category-wrapper'></div>
-            <h2>Выбранная категория</h2>
-    </section>
-)
+        <Section className={classes.Section}>
+            <CategoryItem/>
+                
+        </Section>   
 
+)
 export { Category };
