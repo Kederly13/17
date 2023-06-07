@@ -1,7 +1,5 @@
 .previewWrapper {
-    border-radius: 20px;
-    padding: 40px 90px 62px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px 110px;
 }

@@ -5,7 +5,7 @@ import { loadMovies } from 'store/movies/action';
 import { selectMovies } from 'store/movies/selectors';
 
 import { CardContent } from 'components/CardContent';
-import { Section } from 'components/Section';
+
 import { CardMovie, VARIANTS } from 'components/CardMovie';
 
 import { CONSTANTS } from 'constants/constants';
@@ -18,11 +18,21 @@ const CategoryItem = () => {
     const moviesList = useAppSelector(selectMovies);
 
     useEffect(() => {
-        dispatch(loadMovies(CONSTANTS.GIRLS));
+        dispatch(loadMovies(CONSTANTS.HORROR));
     }, [dispatch])
 
     return (
-        <></>
+        <CardContent className={classes.previewWrapper}>
+            {moviesList.map(({ id, image: { medium }, name, genres }) => (
+                <CardMovie
+                    key={id}
+                    image={medium}
+                    name={name}
+                    genres={genres}
+                    variant={VARIANTS.SECONDARY}
+                />
+            ))}
+        </CardContent>
     )
 }
 

@@ -1,19 +1,33 @@
 .card {
     &.primary {
         font-size: 13px;
-        &.cardInfo {
-            padding-bottom: 15px;
+        max-width: 180px;
+
+        .cardInfo {
+            margin-top: 18px;
         }
-        &.movieName {
+
+        .movieName {
             font-size: 15px;
             margin-bottom: 25px;
         } 
-        &.cardDetails {
+
+        .cardDetails {
             display: flex;
-            font-size: 30px;
+            font-size: 13px;
+            margin-bottom: 12px;
+            
+            p {
+                &:first-child {
+                  margin-right: 5px; // Adjust the value as needed
+                }
+            }
         }
-        &.genre {
-            margin-top: 30px;
-        }
+
+        .genres {
+            .genre:not(:last-child) {
+              margin-right: 5px; // Adjust the value as needed
+            }
+        }  
     }
 }

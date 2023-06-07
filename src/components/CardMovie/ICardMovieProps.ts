@@ -1,6 +1,6 @@
 import { IVARIANTS } from "./constants";
 
-export interface ICardMovie {
+export interface ICardMovieProps {
     id?: number,
     image: string;
     name: string
@@ -10,6 +10,6 @@ export interface ICardMovie {
         name: string;
         }  
     };
-    country: string
+    country?: string
     variant: IVARIANTS['PRIMARY'] | IVARIANTS['SECONDARY'];
 }

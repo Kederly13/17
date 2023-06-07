@@ -9,6 +9,7 @@ import { selectMovies } from 'store/movies/selectors';
 import { CardContent } from 'components/CardContent';
 import { CardMovie, VARIANTS } from 'components/CardMovie';
 import { getYear } from 'utils/getYear';
+import { ImageDefault } from 'components/ImageDefault';
 
 import { CONSTANTS } from 'constants/constants';
 
@@ -51,20 +52,19 @@ const PreviewMovies = () => {
 
  
     return (
-        <CardContent>
-            <div className={classes.previewWrapper}>
-                {moviesList.map(({ id, image: { medium }, name, premiered, country, genres }) => (
-                    <CardMovie
-                        key={id}
-                        image={medium}
-                        name={name}
-                        year={getYear(premiered)}
-                        country={country}
-                        genres={genres}
-                        variant={VARIANTS.PRIMARY}
-                    />
-                ))}
-            </div> 
+        <CardContent className={classes.previewWrapper}>
+            {moviesList.map(({ id, image: { medium }, name, premiered, country, genres }) => (
+                <CardMovie
+                    key={id}
+                    image={medium}
+                    name={name}
+                    year={getYear(premiered)}
+                    country={country}
+                    genres={genres}
+                    variant={VARIANTS.PRIMARY}
+                />
+            ))}
+            
         </CardContent> 
     )
 };
