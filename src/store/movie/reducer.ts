@@ -1,12 +1,12 @@
 import { AnyAction } from 'redux';
-import { Istore } from 'store/types';
+import { IMovieStore } from 'store/types';
 
 const initialState = {
-    movies: null,
+    movie: null,
     error: null,
 }
 
-const moviesReducer = (state: Istore = initialState, action: AnyAction) => {
+const moviesReducer = (state: IMovieStore = initialState, action: AnyAction) => {
     switch(action.type) {
         case 'movies/setMovie':
             return {...state, movie: action.payload}

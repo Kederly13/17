@@ -1,0 +1,5 @@
+const MoviesDetail = () => (
+<></>
+)
+
+export { MoviesDetail };

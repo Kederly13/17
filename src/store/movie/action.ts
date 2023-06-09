@@ -12,6 +12,8 @@ export const setMovieAction = () => {
     }
 }
 
+export const 
+
 export const loadMovie = (id: string) => async (dispatch: Dispatch) => {
     try {
         const response = await MoviesAPI.getSingle(id);
@@ -23,6 +25,6 @@ export const loadMovie = (id: string) => async (dispatch: Dispatch) => {
         })
         dispatch(setMovieAction(extractedShow));
     } catch (error) {
-        dispatch(setErrorMoviesAction(getErrorMessage(error)))
+        dispatch(setErrorMovieAction(getErrorMessage(error)))
     }
 };

@@ -11,3 +11,5 @@ const DetailCard = () => {
         </CardContent>
     </Section>
 }
+
+export { DetailCard };

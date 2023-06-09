@@ -1,7 +1,12 @@
 import { IMoviesDetail } from "types/IMoviesDetail";
 
 export interface Istore {
-    movies: IMoviesDetail[] | null;
+    movies: IMoviesDetail[];
+    error: string | null;
+}
+
+export interface IMovieStore {
+    movie: IMoviesDetail | null;
     error: string | null;
 }
 
