@@ -1,7 +1,7 @@
 import { IMoviesDetail } from "types/IMoviesDetail";
 
 export interface Istore {
-    movies: IMoviesDetail[];
+    movies: IMoviesDetail[] | null;
     error: string | null;
 }
 

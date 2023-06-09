@@ -22,11 +22,11 @@ const CategoryItem = () => {
     }, [dispatch])
 
     return (
-        <CardContent className={classes.previewWrapper}>
-            {moviesList.map(({ id, image: { medium }, name, genres }) => (
+        <CardContent className={classes.categoryWrapper}>
+            {moviesList.map(({ id, image, name, genres }) => (
                 <CardMovie
                     key={id}
-                    image={medium}
+                    image={image?.medium}
                     name={name}
                     genres={genres}
                     variant={VARIANTS.SECONDARY}

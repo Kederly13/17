@@ -5,8 +5,7 @@ import classes from './styles.module.css';
 
 const Category = () => (
         <Section className={classes.Section}>
-            <CategoryItem/>
-                
+            <CategoryItem/> 
         </Section>   
 
 )

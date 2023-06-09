@@ -1,4 +1,6 @@
 import { NavLink } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import classNames from 'classnames';
 
 import { routeMain as routeMainPage } from 'scenes/Main';
 import { routeMain as routeCategoryPage } from 'scenes/Categories';
@@ -14,13 +16,32 @@ import classes from './styles.module.css'
 
 const Header = () => {
 
-  const getActiveLink = ({ isActive }: { isActive: boolean }) => `${isActive ? 'LinkActive' : ''}`;
+  const getActiveLink = ({ isActive }: { isActive: boolean }) => `${isActive ? classes.LinkActive : ''}`;
+
+  const [isScroll, setScroll] = useState(false);
+
+  const handleScroll = () => {
+    const scroll = window.scrollY ?? document.documentElement.scrollTop;
+    if(scroll > 10) {
+      setScroll(true)
+    } else {
+      setScroll(false)
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
     return (
-      <header className={classes.header}>
+      <header className={classNames(classes.header, {
+        [classes.scroll]: isScroll
+      })}>
         <Container>
           <div className={classes.headerWrapper}>
-            <a className={classes.logo} href="#">
+            <a href="!#" className={classes.logo}>
               <img src={logo} alt='logo' />
             </a>
             <nav className={classes.nav}>

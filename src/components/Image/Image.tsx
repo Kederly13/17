@@ -1,5 +1,5 @@
 import classses from './styles.module.css';
-import { ImageDefault } from 'components/ImageDefault';
+import imageDefault from 'assets/img/background/background.png';
 
 interface IImageProps {
   alt: string,
@@ -9,9 +9,7 @@ interface IImageProps {
 const Image: React.FC<IImageProps> = ({ alt, image }) => {
   return (
     <div className={classses.imageBlock}>
-      {image ? (
-        <img src={image}  alt={alt} />
-      ) : <ImageDefault/>}
+      <img src={image ?? imageDefault} alt={alt} />
     </div>
   );
 };

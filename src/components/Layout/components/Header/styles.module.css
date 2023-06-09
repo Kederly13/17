@@ -1,9 +1,14 @@
 .header {
-    padding-top: 55px;
+    padding: 40px;
     font-size: 20px;
     position: fixed;
     width: 100%;
     z-index: 2;
+    transition: background-color 500ms ease;
+}
+
+.header.scroll {
+    background-color: black;
 }
 
 .headerWrapper {
@@ -12,12 +17,6 @@
     justify-content: space-between;
 }
 
-/* .logo {
-    background: url('Logo.svg') no-repeat;
-    display: block;
-    width: 185px;
-    height: 41px;
-} */
 
 nav a {
     margin-left: 35px;

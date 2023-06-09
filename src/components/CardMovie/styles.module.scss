@@ -1,4 +1,18 @@
 .card {
+    .genres {
+        .genre:not(:last-child) {
+          margin-right: 5px;
+        }
+    }  
+
+    .movieName {
+        text-transform: capitalize;
+    }
+
+    .cardInfo {
+        margin-top: 18px;
+    }
+
     &.primary {
         font-size: 13px;
         max-width: 180px;
@@ -10,6 +24,7 @@
         .movieName {
             font-size: 15px;
             margin-bottom: 25px;
+            
         } 
 
         .cardDetails {
@@ -23,11 +38,19 @@
                 }
             }
         }
+        
+    }
 
-        .genres {
-            .genre:not(:last-child) {
-              margin-right: 5px; // Adjust the value as needed
+    &.secondary {
+        display: flex;
+
+        .cardInfo {
+            margin-left: 42px;
+
+            .movieName {
+                margin-bottom: 57px;
+                
             }
-        }  
+        }
     }
 }

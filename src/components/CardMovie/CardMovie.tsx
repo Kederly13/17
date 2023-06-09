@@ -17,7 +17,7 @@ const CardMovie: React.FC<ICardMovieProps> = ({ name, image, year, genres, varia
         <div className={classNames(styles.card, {
             [styles[variant]]:variant 
         })}>
-            {image && <Image alt={name} image={image} />}
+            <Image alt={name} image={image} />
             <div className={styles.cardInfo}>
                 <h3 className={styles.movieName}>{name}</h3>
                 {(year && country) && (
