@@ -4,9 +4,11 @@ import { configureStore, ThunkDispatch } from '@reduxjs/toolkit';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { combineReducers } from 'redux';
 import { moviesReducer } from './movies/reducer';
+import { movieReducer } from './movie/reducer';
 
 const rootReducer = combineReducers({
     moviesReducer,
+    movieReducer,
   });
 
 const store = configureStore({

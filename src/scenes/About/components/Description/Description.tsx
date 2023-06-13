@@ -2,7 +2,6 @@ import './styles.css';
 
 const Description = () => (
     <section className='description'>
-
             <div className='description-wrapper'>
                 <img src='' alt=''></img>
                 <div className='info-block'>

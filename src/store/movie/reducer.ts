@@ -6,15 +6,15 @@ const initialState = {
     error: null,
 }
 
-const moviesReducer = (state: IMovieStore = initialState, action: AnyAction) => {
+const movieReducer = (state: IMovieStore = initialState, action: AnyAction) => {
     switch(action.type) {
-        case 'movies/setMovie':
+        case 'movie/setMovie':
             return {...state, movie: action.payload}
-        case 'movies/setErrorMovie':
+        case 'movie/setErrorMovie':
             return {...state, movie: action.payload}
         default:
             return state;
     }
 };
 
-export { moviesReducer }
+export { movieReducer };

@@ -1,19 +1,19 @@
 import { Dispatch } from 'redux';
 
-import { Istore, ApiResponse } from 'store/types';
+import { IMoviesStore, IMoviesApiResponse } from './types';
 
 import { MoviesAPI } from 'api/MoviesAPI';
 import { getErrorMessage } from 'utils/getErrorMessage';
 
 
-export const setMoviesAction = (list: Istore['movies'] ) => {
+export const setMoviesAction = (list: IMoviesStore['movies'] ) => {
     return {
         type: 'movies/setMovies',
         payload: list,
     }
 };
 
-export const setErrorMoviesAction = (error: Istore['error'] ) => {
+export const setErrorMoviesAction = (error: IMoviesStore['error'] ) => {
     return {
         type: 'movies/setMovies',
         payload: error,
@@ -23,7 +23,7 @@ export const setErrorMoviesAction = (error: Istore['error'] ) => {
 export const loadMovies = (category: string) => async (dispatch: Dispatch) => {
     try {
         const response = await MoviesAPI.getCategory(category);
-        const extractedShows = response.data.map((item: ApiResponse) => {
+        const extractedShows = response.data.map((item: IMoviesApiResponse) => {
             const { id, image, name, genres, premiered, network } = item.show;
             const country = network?.country.name;
 
