@@ -6,11 +6,15 @@
     }  
 
     .movieName {
-        text-transform: capitalize;
+        text-transform: uppercase;
     }
 
     .cardInfo {
         margin-top: 18px;
+
+        .movieName {
+
+        }
     }
 
     &.primary {

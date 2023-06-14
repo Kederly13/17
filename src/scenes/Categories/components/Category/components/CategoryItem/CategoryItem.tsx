@@ -26,19 +26,17 @@ const CategoryItem = () => {
     return (
         <CardContent className={classes.categoryWrapper}>
             {moviesList.map(({ id, image, name, genres }) => (
-                <NavLink to={routeMovieDetails(id.toString())}>
-                    <CardMovie
-                        key={id}
-                        image={image?.medium}
-                        name={name}
-                        genres={genres}
-                        variant={VARIANTS.SECONDARY}
-                    />
-                </NavLink>
+                <CardMovie
+                    key={id}
+                    url={routeMovieDetails(id.toString())}
+                    image={image?.medium}
+                    name={name}
+                    genres={genres}
+                    variant={VARIANTS.SECONDARY}
+                />
             ))}
-            
         </CardContent>
-    )
-}
+    );
+};
 
 export {CategoryItem};

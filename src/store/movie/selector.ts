@@ -1,7 +1,8 @@
 import { IMovieStore } from './types';
 import { IMoviesDetail } from 'types/IMoviesDetail';
+import { IMovieDetail } from './types';
 
-export const selectMovie = (state: { movieReducer: IMovieStore }): IMoviesDetail | null =>
+export const selectMovie = (state: { movieReducer: IMovieStore }): IMovieDetail | null =>
   state.movieReducer.movie;
 
 

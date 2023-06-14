@@ -2,6 +2,7 @@ import {useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from 'components/hooks';
 import axios from 'axios';
 import { MoviesAPI } from 'api/MoviesAPI';
+import { routeMain as routeMovieDetails } from 'scenes/SingleMovie/routes';
 
 import { loadMovies } from 'store/movies/action';
 import { selectMovies } from 'store/movies/selectors';
@@ -55,6 +56,7 @@ const PreviewMovies = () => {
             {moviesList.map(({ id, image, name, premiered, country, genres }) => (
                 <CardMovie
                     key={id}
+                    url={routeMovieDetails(id.toString())}
                     image={image?.medium}
                     name={name}
                     year={getYear(premiered)}
@@ -63,9 +65,8 @@ const PreviewMovies = () => {
                     variant={VARIANTS.PRIMARY}
                 />
             ))}
-            
         </CardContent> 
-    )
+    );
 };
 
 export { PreviewMovies };
