@@ -34,45 +34,43 @@ const DetailCard = () => {
     const { name, image, country, rating, genres, premiered, summary } = singleMovie;
 
     return (
-        <CardContent>
-            <div className={classes.detailWrapper}>
-                <Image alt={name} image={image.original} />
-                <div className={classes.cardInfo}>
-                    <div className={classes.detailHeader}>
-                        <h3 className={classes.movieName}>{name}</h3>
-                        {rating.average && (
-                            <div className={classes.rating}>
-                                <img alt='star' src={star} className={classes.star}/>
-                                <span className={classes.ratingNumber}>{rating.average}</span>
-                            </div>
-                        )}
-                    </div>
-                    {premiered && (
-                        <div className={classes.premiered}>
-                            <span className={classes.infoName}>ГОД ВЫХОДА:</span>
-                            <span className={classes.infoProp}>{getYear(premiered)}</span>
+        <CardContent className={classes.detailCardWrapper}>
+            <Image alt={name} image={image.original} className={classes.movieImage}/>
+            <div className={classes.cardInfo}>
+                <div className={classes.detailHeader}>
+                    <h3 className={classes.movieName}>{name}</h3>
+                    {rating.average && (
+                        <div className={classes.rating}>
+                            <img alt='star' src={star} className={classes.star}/>
+                            <span className={classes.ratingNumber}>{rating.average}</span>
                         </div>
                     )}
-                    {country && (
-                        <div className={classes.country}>
-                            <span className={classes.infoName}>СТРАНА:</span>
-                            <span className={classes.infoProp}>{country}</span>
-                        </div>
+                </div>
+                {premiered && (
+                    <div className={classes.premiered}>
+                        <span className={classes.infoName}>ГОД ВЫХОДА:</span>
+                        <span className={classes.infoProp}>{getYear(premiered)}</span>
+                    </div>
+                )}
+                {country && (
+                    <div className={classes.country}>
+                        <span className={classes.infoName}>СТРАНА:</span>
+                        <span className={classes.infoProp}>{country}</span>
+                    </div>
+                )}
+                <div className={classes.genres}>
+                    <span className={classes.infoName}>ЖАНР:</span>
+                    {Array.isArray(genres) ? (
+                        genres.map((genre, index) => (
+                            <span key={index} className={classes.genre}>{index > 0 && ", "}{genre}</span>
+                        ))
+                    ) : (
+                        <span className={classes.genre}>{genres}</span>
                     )}
-                    <div className={classes.genres}>
-                        <span className={classes.infoName}>ЖАНР:</span>
-                        {Array.isArray(genres) ? (
-                            genres.map((genre, index) => (
-                                <span key={index} className={classes.genre}>{genre}</span>
-                            ))
-                        ) : (
-                            <span className={classes.genre}>{genres}</span>
-                        )}
-                    </div>
-                    <div className={classes.summary}>
-                        <span className={classes.infoName}>ОПИСАНИЕ:</span>
-                        <p className={classes.summaryText}>{summary}</p>
-                    </div>
+                </div>
+                <div className={classes.summary}>
+                    <span className={classes.infoName}>ОПИСАНИЕ:</span>
+                    <div dangerouslySetInnerHTML={{ __html: summary}} className={classes.summaryText} />
                 </div>
             </div>
         </CardContent>

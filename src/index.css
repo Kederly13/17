@@ -9,6 +9,12 @@ body {
   margin: 0;
 }
 
+/* #root {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+} */
+
 section {
 	padding: 95px;
 }
@@ -18,6 +24,7 @@ main {
 	position: relative;
 	z-index: 1;
 	padding-top: 55px;
+	min-height: 100vh;
 }
 
 main::before {

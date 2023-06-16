@@ -12,9 +12,7 @@
     .cardInfo {
         margin-top: 18px;
 
-        .movieName {
-
-        }
+        
     }
 
     &.primary {
@@ -38,7 +36,7 @@
             
             p {
                 &:first-child {
-                  margin-right: 5px; // Adjust the value as needed
+                  margin-right: 5px; 
                 }
             }
         }

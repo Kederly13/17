@@ -1,4 +1,4 @@
-.detailWrapper {
+.detailCardWrapper {
     display: flex;
 }
 
@@ -8,8 +8,23 @@
     margin-bottom: 42px;
 }
 
+.movieImage {
+    max-width: 229px;
+    max-height: 339px;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+/* .genre:not(:last-child) {
+    margin-right: 5px;
+} */
+
 .cardInfo {
     margin-left: 23px;
+}
+
+.cardInfo > div:not(:last-child) {
+    margin-bottom: 22px;
 }
 
 .movieName {

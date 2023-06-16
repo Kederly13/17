@@ -1,13 +1,9 @@
-import {  } from "./components/Search";
+import { CategorySearch } from "./components/CategorySearch";
 
 
-const Search = () => {
+const Search = () => (
+    <CategorySearch/>
+)
 
-
-    return(
-    <>
-
-    </>)
-}
 
 export { Search };
