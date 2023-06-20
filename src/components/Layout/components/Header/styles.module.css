@@ -27,6 +27,7 @@ nav a {
 
 .header .nav a.LinkActive {
     color: #E59C9C;
+    text-decoration: underline;
 }
 
 nav a:first-child {

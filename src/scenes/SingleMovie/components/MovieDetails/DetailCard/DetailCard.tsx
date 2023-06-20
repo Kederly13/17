@@ -25,17 +25,16 @@ const DetailCard = () => {
     useEffect(() => {
         id && dispatch(loadMovie(id))
     }, [id])
-    
-    console.log(singleMovie);
 
     if (!singleMovie) {
         return null;
     };
+    
     const { name, image, country, rating, genres, premiered, summary } = singleMovie;
 
     return (
         <CardContent className={classes.detailCardWrapper}>
-            <Image alt={name} image={image.original} className={classes.movieImage}/>
+            <Image alt={name} image={image?.original} className={classes.movieImage}/>
             <div className={classes.cardInfo}>
                 <div className={classes.detailHeader}>
                     <h3 className={classes.movieName}>{name}</h3>

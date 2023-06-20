@@ -5,12 +5,10 @@ import classes from './styles.module.css';
 
 interface ISectionParams {
     children: ReactNode;
-    className: ReactNode;
-    containerFluid?: boolean; 
+    className?: ReactNode;
 }
 
-const Section: React.FC<ISectionParams> = ({ children, className, containerFluid }) => (
-    // сделать проверку на className
+const Section: React.FC<ISectionParams> = ({ children, className }) => (
     <section className={`${classes.section}, ${className}`}> 
         <div className={classes.container}>
             {children}

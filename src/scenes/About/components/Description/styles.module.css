@@ -1,0 +1,13 @@
+.description {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.infoBlock {
+    max-width: 594px; 
+}
+
+.descriptionHeading {
+    margin-bottom: 15px;
+}
