@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, ChangeEvent } from 'react';
 import { CardMovie, VARIANTS } from 'components/CardMovie';
 import { routeMain as routeMovieDetails } from 'scenes/SingleMovie';
 
@@ -16,43 +16,49 @@ import SearchIcon from './searchIcon.svg';
 import classes from './styles.module.css';
 
 const CategorySearch = () => {
-    const [category, setCategory] = useState('');
+    const [category, setCategory] = useState<string>('');
     const [movies, setMovies] = useState<IMovieDetail[]>([]);
-    const [isButtonClicked, setIsButtonClicked] = useState(false);
-    const [error, setError] = useState('');
+    const [error, setError] = useState<string>('');
+    const [validate, setValidate] = useState<boolean>(false);
 
-    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>)  => {
-      event.preventDefault();
-      if (category.trim() !== '') {
-        setIsButtonClicked(true);
-        setError('');    
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+      const { value } = e.target;
+
+      if (value.trim() !== '') {  
+        setValidate(true);
+        setCategory(value);    
       } else {
-        setError('Введите поисковой запрос для отображения результатов');
-        setMovies([]);
+        setValidate(false);
       }
     };
-    
-    useEffect(() => {
-        if (isButtonClicked) {
-          const fetchData = async () => {
-            try {
-              const response = await MoviesAPI.getCategory(category);
-              const extractedShows = response.data.map((item: IMoviesApiResponse) => {
-                const { id, image, name, genres, premiered, network } = item.show;
-                const country = network?.country.name;
-                return { id, image, name, genres, country, premiered };
-              });
-    
-              setMovies(extractedShows);
-              setIsButtonClicked(false);
-            } catch (error) {
-              getErrorMessage(error);
-            }
-          };
-    
-          fetchData();
+
+    // const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    //   const { value } = e.target;
+    //   setCategory(prevCategory => {
+    //     const newCategory = value.trim();
+    //     setValidate(newCategory !== '');
+    //     return newCategory;
+    //   });
+    // };
+      
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>)  => {
+      event.preventDefault();
+
+      if (validate) {
+        try {
+          const response = await MoviesAPI.getCategory(category);
+          const extractedShows = response.data.map((item: IMoviesApiResponse) => {
+            const { id, image, name, genres, premiered, network } = item.show;
+            const country = network?.country.name;
+            return { id, image, name, genres, country, premiered };
+          });
+  
+          setMovies(extractedShows);
+        } catch (error) {
+          setError(getErrorMessage(error));
         }
-      }, [isButtonClicked]);
+      }
+    };
 
     return (
       <Section className='section'>
@@ -68,16 +74,15 @@ const CategorySearch = () => {
                       type='text'
                       placeholder='enter a category'
                       value={category}
-                      onChange={(e) => setCategory(e.target.value)}
-                      
+                      onChange={handleChange}                
                   />
                 </div>
               </form>
               
-              {error && (
+              {validate === false && (
                 <>
                   <h3 className={classes.resultHeading}>Результаты поиска:</h3>
-                  <p className={classes.errorText}>{error}</p>
+                  <p className={classes.errorText}>Введите что-то</p>
                 </>
               )}
 
