@@ -79,7 +79,7 @@ const CategorySearch = () => {
                 </div>
               </form>
               
-              {validate === false && (
+              { false && (
                 <>
                   <h3 className={classes.resultHeading}>Результаты поиска:</h3>
                   <p className={classes.errorText}>Введите что-то</p>
