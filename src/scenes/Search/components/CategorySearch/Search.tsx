@@ -9,27 +9,29 @@ import { getErrorMessage } from 'utils/getErrorMessage';
 
 import { CardContent } from 'components/CardContent';
 import { Section } from 'components/Section';
+import { Input } from 'components/Input';
 import { IMovieDetail } from 'store/movie/types';
 
 import SearchIcon from './searchIcon.svg';
 
 import classes from './styles.module.css';
+import { ErrorResponse } from '@remix-run/router';
 
 const CategorySearch = () => {
     const [category, setCategory] = useState<string>('');
     const [movies, setMovies] = useState<IMovieDetail[]>([]);
-    const [error, setError] = useState<string>('');
+    const [errorReponse, setErrorResponse] = useState<string>('данных пока нет, введите запрос');
     const [validate, setValidate] = useState<boolean>(false);
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
       const { value } = e.target;
+      setCategory(value); 
 
       if (value.trim() !== '') {  
-        setValidate(true);
-        setCategory(value);    
+        setValidate(true);  
       } else {
         setValidate(false);
-      }
+      }      
     };
 
     // const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -46,17 +48,26 @@ const CategorySearch = () => {
 
       if (validate) {
         try {
-          const response = await MoviesAPI.getCategory(category);
-          const extractedShows = response.data.map((item: IMoviesApiResponse) => {
-            const { id, image, name, genres, premiered, network } = item.show;
-            const country = network?.country.name;
-            return { id, image, name, genres, country, premiered };
-          });
-  
-          setMovies(extractedShows);
+          const { data } = await MoviesAPI.getCategory(category);
+          
+          if (!!data.length) {
+            const extractedShows = data.map((item: IMoviesApiResponse) => {
+              const { id, image, name, genres, premiered, network } = item.show;
+              const country = network?.country.name;
+              return { id, image, name, genres, country, premiered };
+            });
+    
+            setMovies(extractedShows);
+          } else {
+            setErrorResponse('Результатов нет, попробуйте что то другое');
+          }
+          
         } catch (error) {
-          setError(getErrorMessage(error));
+          setErrorResponse(getErrorMessage(error));
         }
+      } else {
+        setErrorResponse('данных пока нет, введите запрос');
+        setMovies([]);
       }
     };
 
@@ -69,26 +80,16 @@ const CategorySearch = () => {
                   <button type='submit' className={classes.submitButton}>
                         <img src={SearchIcon} alt='Search' className={classes.searchIcon} />
                   </button>
-                  <input
-                      className={classes.searchInput}
-                      type='text'
-                      placeholder='enter a category'
-                      value={category}
-                      onChange={handleChange}                
+                  <Input
+                    type='search'
+                    placeholder='enter a category'
+                    value={category}
+                    onChange={handleChange} 
                   />
                 </div>
-              </form>
-              
-              { false && (
-                <>
-                  <h3 className={classes.resultHeading}>Результаты поиска:</h3>
-                  <p className={classes.errorText}>Введите что-то</p>
-                </>
-              )}
-
-              {movies.length > 0 && (
-                <>
-                  <h3 className={classes.resultHeading}>Результаты поиска:</h3>
+              </form>             
+              <h3 className={classes.resultHeading}>Результаты поиска:</h3>
+              {movies.length > 0 ? (
                   <div className={classes.searchWrapper}>
                       {movies.map(({ id, image, name, genres }) => (
                         <CardMovie
@@ -101,8 +102,9 @@ const CategorySearch = () => {
                         />
                       ))}
                   </div>
-                </>
-              )}
+              ) : 
+              <p>{errorReponse}</p>
+              }
           </CardContent>
       </Section>
     )
