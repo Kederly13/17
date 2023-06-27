@@ -1,6 +1,5 @@
 import { useState, ChangeEvent } from 'react';
 import { CardMovie, VARIANTS } from 'components/CardMovie';
-import { routeMain as routeMovieDetails } from 'scenes/SingleMovie';
 
 import { IMoviesApiResponse } from 'store/movies/types';
 
@@ -15,7 +14,7 @@ import { IMovieDetail } from 'store/movie/types';
 import SearchIcon from './searchIcon.svg';
 
 import classes from './styles.module.css';
-import { ErrorResponse } from '@remix-run/router';
+
 
 const CategorySearch = () => {
     const [category, setCategory] = useState<string>('');
@@ -33,15 +32,6 @@ const CategorySearch = () => {
         setValidate(false);
       }      
     };
-
-    // const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    //   const { value } = e.target;
-    //   setCategory(prevCategory => {
-    //     const newCategory = value.trim();
-    //     setValidate(newCategory !== '');
-    //     return newCategory;
-    //   });
-    // };
       
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>)  => {
       event.preventDefault();
@@ -94,7 +84,7 @@ const CategorySearch = () => {
                       {movies.map(({ id, image, name, genres }) => (
                         <CardMovie
                           key={id}
-                          url={routeMovieDetails(id.toString())}
+                          id={id}
                           image={image?.medium}
                           name={name}
                           genres={genres}

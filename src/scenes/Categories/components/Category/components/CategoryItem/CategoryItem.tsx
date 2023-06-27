@@ -1,10 +1,8 @@
 import {useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from 'components/hooks';
-import { NavLink } from 'react-router-dom';
 
 import { loadMovies } from 'store/movies/action';
 import { selectMovies } from 'store/movies/selectors';
-import { routeMain as routeMovieDetails } from 'scenes/SingleMovie/routes';
 
 import { CardContent } from 'components/CardContent';
 
@@ -28,7 +26,7 @@ const CategoryItem = () => {
             {moviesList.map(({ id, image, name, genres }) => (
                 <CardMovie
                     key={id}
-                    url={routeMovieDetails(id.toString())}
+                    id={id}
                     image={image?.medium}
                     name={name}
                     genres={genres}

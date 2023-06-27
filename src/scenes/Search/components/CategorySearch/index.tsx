@@ -1,3 +1,3 @@
-import { CategorySearch } from "./Search";
+import { CategorySearch } from "./CategorySearch";
 
 export { CategorySearch };

@@ -2,10 +2,7 @@ import { NavLink } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import classNames from 'classnames';
 
-import { routeMain as routeMainPage } from 'scenes/Main';
-import { routeMain as routeCategoryPage } from 'scenes/Categories';
-import { routeMain as routeSearchPage } from 'scenes/Search';
-import { routeMain as routeAboutPage } from 'scenes/About';
+import { routePath } from 'routeСonfig/routes';
 
 import { Container } from 'components/Container';
 
@@ -45,16 +42,16 @@ const Header = () => {
               <img src={logo} alt='logo' />
             </a>
             <nav className={classes.nav}>
-              <NavLink to={routeMainPage()} className={getActiveLink}>
+              <NavLink to={routePath.home} className={getActiveLink}>
                 Главная
               </NavLink>
-              <NavLink to={routeCategoryPage()} className={getActiveLink}>
+              <NavLink to={routePath.movies} className={getActiveLink}>
                 Фильмы по категории
               </NavLink>
-              <NavLink to={routeAboutPage()} className={getActiveLink}>
+              <NavLink to={routePath.about} className={getActiveLink}>
                 О нас
               </NavLink>
-              <NavLink to={routeSearchPage()} className={getActiveLink}>
+              <NavLink to={routePath.search} className={getActiveLink}>
                 Поиск
               </NavLink>
             </nav>

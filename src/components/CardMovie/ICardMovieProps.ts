@@ -1,7 +1,6 @@
 import { IVARIANTS } from "./constants";
 
 export interface ICardMovieProps {
-    url: string,
     id?: number,
     image: string;
     name: string

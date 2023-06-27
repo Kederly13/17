@@ -25,7 +25,7 @@ const CategoryItems = () => {
             {moviesList.map(({ id, image, name, genres }) => (
                 <CardMovie
                     key={id}
-                    url={routeMovieDetails(id.toString())}
+                    id={id}
                     image={image?.medium}
                     name={name}
                     genres={genres}
