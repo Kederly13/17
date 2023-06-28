@@ -10,23 +10,16 @@
     }
 
     .cardInfo {
-        margin-top: 18px;
-
-        
+        margin-top: 18px;    
     }
 
     &.primary {
         font-size: 13px;
         max-width: 180px;
 
-        .cardInfo {
-            margin-top: 18px;
-        }
-
         .movieName {
             font-size: 15px;
-            margin-bottom: 25px;
-            
+            margin-bottom: 25px; 
         } 
 
         .cardDetails {
@@ -52,6 +45,26 @@
             .movieName {
                 margin-bottom: 57px;
                 
+            }
+        }
+    }
+}
+
+@media(max-width: 992px) {
+    .card {
+
+        .cardInfo {
+            margin-top: 5px;
+        }
+
+        &.primary {
+
+            .movieName {
+                margin-bottom: 5px; 
+            }
+            
+            .cardDetails {
+                margin-bottom: 5px;
             }
         }
     }

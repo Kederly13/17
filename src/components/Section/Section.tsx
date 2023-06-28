@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import classNames from 'classnames';
 
 import classes from './styles.module.css';
 
@@ -8,8 +9,8 @@ interface ISectionParams {
     className?: ReactNode;
 }
 
-const Section: React.FC<ISectionParams> = ({ children, className }) => (
-    <section className={`${classes.section}, ${className}`}> 
+const Section: React.FC<ISectionParams> = ({ children }) => (
+    <section> 
         <div className={classes.container}>
             {children}
         </div>

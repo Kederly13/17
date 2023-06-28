@@ -89,3 +89,9 @@ code {
 }
 
 
+@media(max-width: 992px) {
+	section {
+		padding: 45px;
+	}
+}
+
