@@ -13,7 +13,9 @@ import classes from './styles.module.css'
 
 const Header = () => {
 
-  const getActiveLink = ({ isActive }: { isActive: boolean }) => `${isActive ? classes.LinkActive : ''}`;
+  let linkClass = classes.navLink;
+
+  const getActiveLink = ({ isActive }: { isActive: boolean }) => `${isActive ?  `${classes.navLink} ${classes.LinkActive}` : classes.navLink}`;
 
   const [isScroll, setScroll] = useState(false);
 
@@ -42,20 +44,31 @@ const Header = () => {
               <img src={logo} alt='logo' />
             </a>
             <nav className={classes.nav}>
-              <NavLink to={routePath.home} className={getActiveLink}>
-                Главная
-              </NavLink>
-              <NavLink to={routePath.movies} className={getActiveLink}>
-                Фильмы по категории
-              </NavLink>
-              <NavLink to={routePath.about} className={getActiveLink}>
-                О нас
-              </NavLink>
-              <NavLink to={routePath.search} className={getActiveLink}>
-                Поиск
-              </NavLink>
+              <ul className={classes.navList}>
+                <li className={classes.listItem}>
+                  <NavLink to={routePath.home} className={getActiveLink}>
+                    Главная
+                  </NavLink>
+                </li>
+                <li className={classes.listItem}>
+                  <NavLink to={routePath.movies} className={getActiveLink}>
+                    Фильмы по категории
+                  </NavLink>
+                </li>
+                <li className={classes.listItem}>
+                <NavLink to={routePath.about} className={getActiveLink}>
+                  О нас
+                </NavLink>
+                </li>
+                <li className={classes.listItem}>
+                  <NavLink to={routePath.search} className={getActiveLink}>
+                    Поиск
+                  </NavLink>
+                </li>
+              </ul>
             </nav>
-          </div>
+            <div className={classes.menuButton}></div>
+            </div>
         </Container>
       </header>
     )

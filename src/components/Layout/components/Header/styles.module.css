@@ -11,17 +11,23 @@
     background-color: black;
 }
 
-.headerWrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.navList {
+    display: flex;  
 }
 
+.headerWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-nav a {
+.listItem {
     margin-left: 35px;
     font-size: 18px;
     font-weight: 400;
+}
+
+.listItem a {
     color: #FFFFFF;
 }
 
@@ -34,6 +40,46 @@ nav a:first-child {
     margin-left: 0;    
 }
 
+/* Burger */
+
+.menuButton,
+.menuButton::before,
+.menuButton::after {
+  background-color: #fff;
+  height: 4px;
+  width: 30px;
+  /* transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1); */
+  border-radius: 2px;
+  display: none;
+}
+
+.menuButton::before {
+    content: '';
+    margin-top: -8px;
+  }
+  
+  .menuButton::after {
+    content: '';
+    margin-top: 13px;
+  }
+
+
+/* Media queries */
+
 @media(max-width: 992px) {
+    .header {
+        padding: 15px
+    }
     
+    .menuButton {
+        display: block;
+    }
+    
+    .navList {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 40;
+        right: -100%;
+    }
 }
