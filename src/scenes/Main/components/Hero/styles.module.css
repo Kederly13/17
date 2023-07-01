@@ -29,6 +29,7 @@
         font-size: 45px;
         line-height: 50px;
     }
+
     .mainSubtitle {
         font-size: 25px;
     }
@@ -38,18 +39,8 @@
     .mainTitleWrapper {
         margin-bottom: 20px;
     }
-    .mainTitle {
-        font-size: 30px;
-        line-height: 15px;
-    }
     .mainSubtitle {
         font-size: 20px;
     }
 }
 
-@media(max-width: 768px) {
-    
-    .mainSubtitle {
-        display: none;
-    }
-}

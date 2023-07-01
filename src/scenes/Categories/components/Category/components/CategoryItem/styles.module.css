@@ -1,5 +1,7 @@
 .categoryWrapper {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, 509px);
     gap: 32px 25px;
+    justify-content: center;
 }
+

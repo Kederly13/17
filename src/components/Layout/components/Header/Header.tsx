@@ -10,14 +10,18 @@ import logo from 'assets/img/svg/logo/logo.svg'
 
 import classes from './styles.module.css'
 
-
 const Header = () => {
+  const [isActiveMenu, setActiveMenu] = useState(false);
 
-  let linkClass = classes.navLink;
+  const linkClass = classes.navLink;
 
-  const getActiveLink = ({ isActive }: { isActive: boolean }) => `${isActive ?  `${classes.navLink} ${classes.LinkActive}` : classes.navLink}`;
+  const getActiveLink = ({ isActive }: { isActive: boolean }) => `${isActive ? `${linkClass} ${classes.linkActive}` : linkClass}`;
 
-  const [isScroll, setScroll] = useState(false);
+  const [isScroll, setScroll] = useState<boolean>(false);
+  
+  const handleClick = () => {
+    setActiveMenu(!isActiveMenu);
+  };
 
   const handleScroll = () => {
     const scroll = window.scrollY ?? document.documentElement.scrollTop;
@@ -25,6 +29,7 @@ const Header = () => {
       setScroll(true)
     } else {
       setScroll(false)
+      setActiveMenu(false);
     }
   };
 
@@ -40,38 +45,45 @@ const Header = () => {
       })}>
         <Container>
           <div className={classes.headerWrapper}>
-            <a href="!#" className={classes.logo}>
-              <img src={logo} alt='logo' />
-            </a>
+            
+            <NavLink onClick={() => setActiveMenu(false)} to={routePath.home}>
+                <a href="#" className={classes.logo}>
+                <img src={logo} alt='logo' />
+              </a>
+            </NavLink>
             <nav className={classes.nav}>
-              <ul className={classes.navList}>
+              <ul className={`${classes.navList} ${isActiveMenu ? classes.active : ''}`}>
                 <li className={classes.listItem}>
-                  <NavLink to={routePath.home} className={getActiveLink}>
+                  <NavLink onClick={() => setActiveMenu(false)} to={routePath.home} className={getActiveLink}>
                     Главная
                   </NavLink>
                 </li>
                 <li className={classes.listItem}>
-                  <NavLink to={routePath.movies} className={getActiveLink}>
+                  <NavLink onClick={() => setActiveMenu(false)} to={routePath.movies} className={getActiveLink}>
                     Фильмы по категории
                   </NavLink>
                 </li>
                 <li className={classes.listItem}>
-                <NavLink to={routePath.about} className={getActiveLink}>
+                <NavLink onClick={() => setActiveMenu(false)} to={routePath.about} className={getActiveLink}>
                   О нас
                 </NavLink>
                 </li>
                 <li className={classes.listItem}>
-                  <NavLink to={routePath.search} className={getActiveLink}>
+                  <NavLink onClick={() => setActiveMenu(false)} to={routePath.search} className={getActiveLink}>
                     Поиск
                   </NavLink>
                 </li>
               </ul>
             </nav>
-            <div className={classes.menuButton}></div>
-            </div>
+            <button onClick={handleClick} className={`${classes.menuButton} ${isActiveMenu ? classes.active : ''}`} type="button">
+              <span className={classes.burgerLine}></span>
+              <span className={classes.burgerLine}></span>
+              <span className={classes.burgerLine}></span>
+            </button>
+          </div>
         </Container>
       </header>
     )
-  }
+  };
   
   export { Header };
