@@ -27,14 +27,14 @@
 
 .searchWrapper {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(200px, 48.6%));
     gap: 32px 25px;
-    margin-top: 40px;
+    justify-content: center;
 }
 
 .resultHeading {
-    
     font-size: 20px;
+    margin-bottom: 25px;
 }
 
 .errorText {
@@ -42,4 +42,27 @@
     max-width: 232px;
     font-size: 15px;
     text-align: center;
+}
+
+@media(max-width: 576px) {
+
+    .searchForm {
+        margin-bottom: 22px;
+    }    
+
+    .searchHeading {
+        font-size: 20px;
+        margin-bottom: 25px;
+    }
+
+    .resultHeading {
+        font-size: 15px;
+    }
+}
+
+
+@media(max-width: 700px) {
+    .searchWrapper {
+        grid-template-columns: repeat(1, minmax(200px, 100%));
+    }
 }

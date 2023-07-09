@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import classes from './styles.module.css';
-import imageDefault from 'assets/img/background/background.png';
+import imageDefault from 'assets/img/jpg/movieDefault.jpg';
 
 interface IImageProps {
   alt: string,

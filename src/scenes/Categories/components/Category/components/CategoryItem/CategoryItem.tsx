@@ -34,7 +34,7 @@ const CategoryItem = () => {
                 />
             ))}
         </CardContent>
-    );
+    )
 };
 
 export {CategoryItem};

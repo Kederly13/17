@@ -21,6 +21,7 @@ const Header = () => {
   
   const handleClick = () => {
     setActiveMenu(!isActiveMenu);
+    setScroll(true);
   };
 
   const handleScroll = () => {
@@ -45,14 +46,11 @@ const Header = () => {
       })}>
         <Container>
           <div className={classes.headerWrapper}>
-            
             <NavLink onClick={() => setActiveMenu(false)} to={routePath.home}>
-                <a href="#" className={classes.logo}>
-                <img src={logo} alt='logo' />
-              </a>
+                <img src={logo} alt='logo' className={classes.logo} />
             </NavLink>
-            <nav className={classes.nav}>
-              <ul className={`${classes.navList} ${isActiveMenu ? classes.active : ''}`}>
+            <nav className={`${classes.nav} ${isActiveMenu ? classes.active : ''}`}>
+              <ul className={classes.navList}>
                 <li className={classes.listItem}>
                   <NavLink onClick={() => setActiveMenu(false)} to={routePath.home} className={getActiveLink}>
                     Главная

@@ -2,5 +2,7 @@
     overflow: hidden;
     border-radius: 20px;
     max-width: 180px;
-    max-height: 260px;
+    flex-shrink: 0;
+    line-height: 0;
 }
+

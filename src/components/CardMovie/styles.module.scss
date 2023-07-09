@@ -50,11 +50,21 @@
     }
 }
 
+@media (max-width: 1024px) {
+    &.secondary {
+        .image {
+            width: 38%;
+        }
+    }
+    
+}
+
 @media(max-width: 992px) {
     .card {
 
         .cardInfo {
             margin-top: 5px;
+           
         }
 
         &.primary {
@@ -67,9 +77,40 @@
                 margin-bottom: 5px;
             }
         }
+
+        &.secondary {
+
+            .cardInfo {
+                margin-left: 15px;
+            }
+
+            .movieName {
+                font-size: 13px;
+            }
+
+            .cardDetails {
+                font-size: 11px;
+            }
+        }
     }
 }
 
-// @media(max-width: 681px) {
-//     .card 
-// }
+@media(max-width: 576px) {
+    .card {
+        
+        &.secondary {
+            flex-direction: column;
+            align-items: center;
+
+            .cardInfo {
+                margin-left: 0;
+                text-align: center;
+
+                .movieName {
+                    margin-bottom: 0;
+                }
+            }     
+        }
+    }
+}
+

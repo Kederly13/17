@@ -9,13 +9,13 @@ import { Image } from "components/Image";
 import styles from './styles.module.scss';
 
 
-const CardMovie: React.FC<ICardMovieProps> = ({ name, image, year, genres, variant, country, id  }) => {
+const CardMovie: React.FC<ICardMovieProps> = ({ name, image, year, genres, variant, country, id }) => {
     return (
         <NavLink to={`${routePath.movies}/${id}`}>
             <div className={classNames(styles.card, {
                 [styles[variant]]:variant 
             })}>
-                <Image alt={name} image={image} />
+                <Image alt={name} image={image} className={styles.image} />
                 <div className={styles.cardInfo}>
                     <h3 className={styles.movieName}>{name}</h3>
                     {(year && country) && (

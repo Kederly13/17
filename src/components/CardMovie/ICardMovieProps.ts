@@ -10,6 +10,7 @@ export interface ICardMovieProps {
         name: string;
         }  
     };
-    country?: string
+    country?: string;
     variant: IVARIANTS['PRIMARY'] | IVARIANTS['SECONDARY'];
+    
 }
